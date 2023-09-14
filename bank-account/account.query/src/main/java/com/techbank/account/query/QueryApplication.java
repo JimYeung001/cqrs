@@ -8,6 +8,7 @@ public class QueryApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(QueryApplication.class, args);
+		
 	}
 
 }
