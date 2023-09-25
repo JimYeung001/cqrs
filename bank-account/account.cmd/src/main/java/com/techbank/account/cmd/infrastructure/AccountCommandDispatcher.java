@@ -18,7 +18,7 @@ public class AccountCommandDispatcher implements CommandDispatcher {
 
 	@Override
 	public <T extends BaseCommand> void registerHandler(Class<T> type, CommandHandlerMethod<T> handler) {
-		var handlers = routes.computeIfAbsent(type, c -> new LinkedList<>());
+		List<CommandHandlerMethod<? extends BaseCommand>> handlers = routes.computeIfAbsent(type, c -> new LinkedList<>());
 		handlers.add(handler);
 
 	}
