@@ -13,9 +13,13 @@ import com.techbank.cqrs.core.events.EventModel;
 import com.techbank.cqrs.core.exception.AggregateNotFoundException;
 import com.techbank.cqrs.core.exception.ConcurrencyException;
 import com.techbank.cqrs.core.infrastructure.EventStore;
+import com.techbank.cqrs.core.produicers.EventProducer;
 
 public class AccountEventStore implements EventStore {
 
+	@Autowired
+	private EventProducer eventProducer;
+	
 	@Autowired
 	private EventStoreRepository eventStoreRepository;
 
@@ -37,8 +41,9 @@ public class AccountEventStore implements EventStore {
 
 			var persistedEvent = eventStoreRepository.save(eventModel);
 
-			if (persistedEvent != null) {
-				// TODO produce event to Kafka
+			if (!persistedEvent.getId().isEmpty()) {
+				// produce event to Kafka
+				this.eventProducer.produce(event.getClass().getSimpleName(), event);
 			}
 		}
 	}
