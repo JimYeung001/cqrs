@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.techbank.account.cmd.domain.AccountAggregate;
 import com.techbank.account.cmd.domain.EventStoreRepository;
@@ -15,6 +16,7 @@ import com.techbank.cqrs.core.exception.ConcurrencyException;
 import com.techbank.cqrs.core.infrastructure.EventStore;
 import com.techbank.cqrs.core.produicers.EventProducer;
 
+@Service
 public class AccountEventStore implements EventStore {
 
 	@Autowired
