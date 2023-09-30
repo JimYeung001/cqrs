@@ -13,7 +13,7 @@ import com.techbank.cqrs.core.query.BaseQuery;
 import com.techbank.cqrs.core.query.QueryHandlerMethod;
 
 @Service
-public class AccountQueryDispatcher<T extends BaseQuery> implements QueryDispatcher<BaseQuery> {
+public class AccountQueryDispatcher<T extends BaseQuery> implements QueryDispatcher<BaseQuery, BaseEntity> {
 
 	private final Map<Class<? extends BaseQuery>, List<QueryHandlerMethod<BaseQuery>>> routes = new HashMap<>();
 

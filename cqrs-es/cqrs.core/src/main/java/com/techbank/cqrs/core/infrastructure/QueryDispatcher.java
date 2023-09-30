@@ -6,9 +6,9 @@ import com.techbank.cqrs.core.domain.BaseEntity;
 import com.techbank.cqrs.core.query.BaseQuery;
 import com.techbank.cqrs.core.query.QueryHandlerMethod;
 
-public interface QueryDispatcher<T extends BaseQuery> {
+public interface QueryDispatcher<T extends BaseQuery, U extends BaseEntity> {
 
-	<U extends BaseEntity> List<U> send(BaseQuery query);
+	List<U> send(BaseQuery query);
 
 	void registerHanlder(Class<? extends BaseQuery> type, QueryHandlerMethod<T> handler);
 
