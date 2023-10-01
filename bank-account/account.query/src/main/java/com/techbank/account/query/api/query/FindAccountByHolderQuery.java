@@ -9,6 +9,5 @@ import lombok.Data;
 @Data
 @AllArgsConstructor
 public class FindAccountByHolderQuery extends BaseQuery {
-	private EqualityType equalityType;
-	private double balance;
+	private String accountHolder;
 }
