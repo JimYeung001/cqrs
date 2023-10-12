@@ -10,4 +10,6 @@ public interface EventStore {
 	
 	List<BaseEvent> getEvents(String aggregateId);
 
+	public List<String> getAggregateIds();
+
 }

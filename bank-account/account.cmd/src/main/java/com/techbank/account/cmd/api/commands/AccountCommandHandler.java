@@ -31,7 +31,16 @@ public class AccountCommandHandler implements CommandHandler {
 		if (command instanceof CloseAccountCommand) {
 			handleCloseAccountCommand((CloseAccountCommand) command);
 		}
+		
+		if (command instanceof RestoreReadDbCommand) {
+			handleRestoreReadDbCommand((RestoreReadDbCommand) command);
+		}
 
+	}
+
+	private void handleRestoreReadDbCommand(RestoreReadDbCommand command) {
+		eventSourcingHandler.republishEvents();
+		
 	}
 
 	private void handleCloseAccountCommand(CloseAccountCommand command) {

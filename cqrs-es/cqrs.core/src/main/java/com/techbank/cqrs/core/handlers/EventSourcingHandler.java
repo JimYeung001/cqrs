@@ -7,4 +7,6 @@ public interface EventSourcingHandler<T> {
 	
 	T getById(String id);
 
+	void republishEvents();
+
 }
